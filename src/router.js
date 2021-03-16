@@ -2,15 +2,22 @@ import VueRouter from "vue-router"
 
 
 // 导入组件
-import login from "./components/account/login.vue"
-import reg from "./components/account/reg.vue"
+import HomeContainer from "./components/tabbar/HomeContainer.vue"
+import MemberContainer from "./components/tabbar/MemberContainer.vue"
+import ShopcarContainer from "./components/tabbar/ShopcarContainer.vue"
+import SearchContainer from "./components/tabbar/SearchContainer.vue"
+
+
 
 const router = new VueRouter({
     routes: [
-        {path: '/',component: login},
-        {path: '/login',component: login},
-        {path: '/reg',component: reg}
-    ]
+        { path: "/", redirect: "/home"},
+        { path: "/home", component: HomeContainer},
+        { path: "/member", component: MemberContainer},
+        { path: "/shopcar", component: ShopcarContainer},
+        { path: "/search", component: SearchContainer}
+    ],
+    linkActiveClass: "mui-active"
 })
 
 export default router
