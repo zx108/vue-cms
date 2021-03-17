@@ -14,3 +14,6 @@
 
 
 # 123
+
+## 与gitee 远程仓库建立连接 连接名 origin
+## 与git 远程仓库建立连接 链接名 gitorigin
