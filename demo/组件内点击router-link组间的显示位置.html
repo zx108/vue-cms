@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../node_modules/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+    
+    <div id="app">
+        <h4>header</h4>
+
+        <router-view></router-view>
+
+        <router-link to="/qrouterq">router1</router-link>
+
+    </div>
+
+    <template id="router11">
+        <div>
+            
+        </div>
+    </template>
+    
+
+    <script>
+
+        const home ={ template:'<router-link to="/wrouterw/list">router1-1</router-link>'}
+
+        const router11 ={ template:"<h2>list</h2>"}
+
+        const router = new VueRouter({
+            routes: [
+                {path: '/qrouterq', component: home},
+                {path: "/wrouterw/list", component: router11}
+            ]
+        })
+
+        
+
+        
+
+        const vm = new Vue({
+            el:"#app",
+            data() {
+                return {
+                    
+                }
+            },
+            router:router
+        })
+    </script>
+</body>
+</html>
