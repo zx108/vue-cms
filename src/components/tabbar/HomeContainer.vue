@@ -1,10 +1,12 @@
 <template>
     <div>
 
-        <mt-swipe :auto="4000" style="height: 180px;">
-            <mt-swipe-item>1</mt-swipe-item>
-            <mt-swipe-item>2</mt-swipe-item>
-            <mt-swipe-item>3</mt-swipe-item>
+        <mt-swipe :auto="4000">
+            <mt-swipe-item v-for="(item,i) in lunboimg" :key="i">
+                
+                <img :src="item.img">
+            </mt-swipe-item>
+            
         </mt-swipe>
         <h3>HomeContainer</h3>
     </div>
@@ -14,25 +16,31 @@
 export default {
     data() {
         return {
-            
+            lunboimg: []
         }
     },
     methods: {
-        
+        async getLunbo(){
+            const { data } = await this.$http.get("/api/getlunbo")
+            console.log(data)
+            if (data.status === 0) this.lunboimg = data.message
+        }
     },
+
+    created(){
+        this.getLunbo()
+    }
+
 }
 </script>
 
 <style scoped>
-    div:nth-child(1){
-        background: red;
+    div:first-child{
+        height: 180px;
     }
 
-    div:nth-child(2){
-        background: pink;
-    }
-
-    div:nth-child(3){
-        background: hotpink;
+    div:first-child img{
+        width: 100%;
+        height: 100%;
     }
 </style>

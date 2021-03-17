@@ -17,7 +17,11 @@ import 'mint-ui/lib/style.css'
 import VueRouter  from "vue-router"
 Vue.use(VueRouter)
 
-
+// 带入 axios 模块
+import axios from "axios"
+Vue.prototype.$http = axios.create({
+    baseURL : "http://api.cms.liulongbin.top/"
+})
 
 // 导入全局css文件
 import "./css/index.css"
